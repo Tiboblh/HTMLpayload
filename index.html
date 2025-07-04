@@ -4,5 +4,5 @@ fetch('payload.js')
   .then(code => {
     window.opener.postMessage({ maVariable: code }, '*');
     window.close();
-  });
+  };
 </script>
