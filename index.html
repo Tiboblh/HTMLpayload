@@ -1,0 +1,9 @@
+<script>
+fetch('payload.js')
+  .then(r => r.text())
+  .then(code => {
+    payload = code; // ou eval(code) pour l'exécuter
+  });
+window.opener.postMessage({maVariable: payload}, '*');
+window.close();
+</script>
